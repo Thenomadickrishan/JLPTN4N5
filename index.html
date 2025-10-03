@@ -226,9 +226,10 @@
   </a>
 </div>
       </div>
-      <div class="logout-wrap">
-        <button id="logoutBtn" class="logout-btn" title="Clear access">Logout</button>
-      </div>
+<div class="logout-wrap" style="display: flex; flex-direction: column; gap: 8px;">
+  <button id="switchLevelBtn" class="btn-sec" style="margin-bottom:6px; background: linear-gradient(90deg, #10b981 0%, #ffffff 100%); color: #065f46; border: 1px solid #16a34a;">SWITCH JLPT LEVEL</button>
+  <button id="logoutBtn" class="logout-btn" title="Clear access">Logout</button>
+</div>
     </div>
   </header>
 
@@ -938,6 +939,10 @@ let jpDisplayMap = new Map();
   document.getElementById('authBtn').addEventListener('click', attemptAuth);
   document.getElementById('authPass').addEventListener('keydown', (e) => { if (e.key === 'Enter') attemptAuth(); });
   document.getElementById('logoutBtn').addEventListener('click', logout);
+  document.getElementById('switchLevelBtn').addEventListener('click', function() {
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('levelSelector').style.display = '';
+});
   window.addEventListener('load', () => { if (hasValidSession()) { setAppVisible(true); appInitOnce(); } else { setAppVisible(false); } });
   document.getElementById('btnJLPTN4').addEventListener('click', () => selectLevel('n4'));
   document.getElementById('btnJLPTN5').addEventListener('click', () => selectLevel('n5'));
@@ -1954,7 +1959,7 @@ let jpDisplayMap = new Map();
 "tatemono,Building"
 "tanoshii,Fun, enjoyable"
 "tanomu,To request, ask"
-"tabako,Tobacco, cigarete"
+"tabako,Tobacco, cigarette"
 "tabun,Probably"
 "tabemono,Food"
 "taberu,To eat"
@@ -4870,8 +4875,6 @@ document.getElementById('kanjiMegaImportStatsBtn').addEventListener('click', () 
 </script>
 </body>
 </html>
-
-
 
 
 
